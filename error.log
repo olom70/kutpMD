@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/home/olom/ownCloud/dev/python/keepupthepaceMD/main.py", line 39, in <module>
+    from kivymd.theming import ThemeManager
+  File "/home/olom/ownCloud/dev/python/keepupthepaceMD/libs/applibs/kivymd/theming.py", line 24, in <module>
+    from kivy.app import App
+  File "/usr/lib/python3/dist-packages/kivy/app.py", line 319, in <module>
+    from kivy.base import runTouchApp, stopTouchApp
+  File "/usr/lib/python3/dist-packages/kivy/base.py", line 26, in <module>
+    from kivy.clock import Clock
+  File "/usr/lib/python3/dist-packages/kivy/clock.py", line 363, in <module>
+    from kivy._clock import CyClockBase, ClockEvent, FreeClockEvent, \
+ModuleNotFoundError: No module named 'kivy._clock'
