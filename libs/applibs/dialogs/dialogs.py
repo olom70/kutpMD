@@ -25,7 +25,7 @@ from .selection import Selection
 
 Builder.load_string(
     """
-# Окно для ввода текста.
+# A window to input text
 
 [InputText@ModalView]:
     size_hint: .8, .4
@@ -77,7 +77,7 @@ Builder.load_string(
                         theme_text_color: 'Custom'
                         text_color: app.theme_cls.primary_color
 
-# Окно прогресса.
+# Fenêtre de progression
 
 [Progress@ModalView]:
     size_hint: .8, .4
@@ -135,7 +135,7 @@ def dialog(
     ref_callback=None,
     check_callback=None,
 ):
-    """Вывод диалоговых окон."""
+    """Dialog box exit."""
 
     if buttons is None:
         buttons = []
@@ -213,7 +213,7 @@ def input_dialog(
 
 
 def card(content, title=None, background_color=None, size=(0.7, 0.5)):
-    """Вывод диалоговых окон с кастомным контентом."""
+    """Display the dialog boxes with customized content."""
 
     if not background_color:
         background_color = [1.0, 1.0, 1.0, 1]

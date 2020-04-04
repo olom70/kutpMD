@@ -10,7 +10,7 @@
 #
 # LICENSE: MIT
 
-from kivymd.uix.navigationdrawer import NavigationLayout
+from libs.applibs.kivymd.uix.navigationdrawer import NavigationLayout
 
 
 class StartScreen(NavigationLayout):

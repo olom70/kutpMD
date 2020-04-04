@@ -16,19 +16,14 @@
 import os
 import sys
 import traceback
-
+import urllib
+import webbrowser
 NICK_NAME_AND_NAME_REPOSITORY = 'olom70/kutpMD'
 
 directory = os.path.split(os.path.abspath(sys.argv[0]))[0]
 sys.path.insert(0, os.path.join(directory, 'libs/applibs'))
 
 try:
-    import webbrowser
-    try:
-        import six.moves.urllib
-    except ImportError:
-        pass
-
     import kivy
     kivy.require('1.11.1')
 
@@ -36,8 +31,8 @@ try:
     Config.set('kivy', 'keyboard_mode', 'system')
     Config.set('kivy', 'log_enable', 0)
 
-    from kivymd.theming import ThemeManager
-    from bugreporter import BugReporter
+    from libs.applibs.kivymd.theming import ThemeManager
+    from libs.applibs.bugreporter import BugReporter
 except Exception:
     traceback.print_exc(file=open(os.path.join(directory, 'error.log'), 'w'))
     print(traceback.print_exc())
@@ -82,10 +77,10 @@ def main():
                 app = None
 
         def callback_report(*args):
-            '''Fonction de rapport de bogue.'''
+            '''bug report function.'''
 
             try:
-                txt = six.moves.urllib.parse.quote(
+                txt = urllib.parse.quote(
                     report.txt_traceback.text.encode('utf-8')
                 )
                 url = 'https://github.com/%s/issues/new?body=' % NICK_NAME_AND_NAME_REPOSITORY + txt
