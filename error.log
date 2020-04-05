@@ -1,0 +1,22 @@
+Traceback (most recent call last):
+  File "/home/olom/ownCloud/dev/python/keepupthepaceMD/main.py", line 64, in main
+    app.run()
+  File "/home/olom/ownCloud/dev/python/keepupthepaceMD/kivy_venv/lib/python3.7/site-packages/kivy/app.py", line 829, in run
+    root = self.build()
+  File "/home/olom/ownCloud/dev/python/keepupthepaceMD/keepupthepacemd.py", line 75, in build
+    self.screen = StartScreen()
+  File "/home/olom/ownCloud/dev/python/keepupthepaceMD/kivy_venv/lib/python3.7/site-packages/kivy/uix/floatlayout.py", line 65, in __init__
+    super(FloatLayout, self).__init__(**kwargs)
+  File "/home/olom/ownCloud/dev/python/keepupthepaceMD/kivy_venv/lib/python3.7/site-packages/kivy/uix/layout.py", line 76, in __init__
+    super(Layout, self).__init__(**kwargs)
+  File "/home/olom/ownCloud/dev/python/keepupthepaceMD/kivy_venv/lib/python3.7/site-packages/kivy/uix/widget.py", line 361, in __init__
+    rule_children=rule_children)
+  File "/home/olom/ownCloud/dev/python/keepupthepaceMD/kivy_venv/lib/python3.7/site-packages/kivy/uix/widget.py", line 469, in apply_class_lang_rules
+    rule_children=rule_children)
+  File "/home/olom/ownCloud/dev/python/keepupthepaceMD/kivy_venv/lib/python3.7/site-packages/kivy/lang/builder.py", line 538, in apply
+    rule_children=rule_children)
+  File "/home/olom/ownCloud/dev/python/keepupthepaceMD/kivy_venv/lib/python3.7/site-packages/kivy/lang/builder.py", line 655, in _apply_rule
+    widget.add_widget(child)
+  File "/home/olom/ownCloud/dev/python/keepupthepaceMD/libs/applibs/kivymd/uix/navigationdrawer.py", line 346, in add_widget
+    "The NavigationLayout must contain "
+libs.applibs.kivymd.uix.navigationdrawer.NavigationDrawerContentError: The NavigationLayout must contain only `MDNavigationDrawer` and `ScreenManager`

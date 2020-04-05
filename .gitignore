@@ -1,6 +1,5 @@
 .buildozer/*
 kivy_venv/pyvenv.cfg
-libs/*
 kivy_venv/*
 *.pyc
 libs/applibs/kivymd/*

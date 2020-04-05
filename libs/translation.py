@@ -4,7 +4,7 @@ from kivy.lang import Observable
 
 
 class Translation(Observable):
-    """Write by tito - https://github.com/tito/kivy-gettext-example."""
+    """Written by tito - https://github.com/tito/kivy-gettext-example."""
 
     observers = []
     lang = None
