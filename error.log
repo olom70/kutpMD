@@ -3,7 +3,7 @@ Traceback (most recent call last):
     app.run()
   File "/home/olom/ownCloud/dev/python/keepupthepaceMD/kivy_venv/lib/python3.7/site-packages/kivy/app.py", line 829, in run
     root = self.build()
-  File "/home/olom/ownCloud/dev/python/keepupthepaceMD/keepupthepacemd.py", line 75, in build
+  File "/home/olom/ownCloud/dev/python/keepupthepaceMD/keepupthepacemd.py", line 80, in build
     self.screen = StartScreen()
   File "/home/olom/ownCloud/dev/python/keepupthepaceMD/kivy_venv/lib/python3.7/site-packages/kivy/uix/floatlayout.py", line 65, in __init__
     super(FloatLayout, self).__init__(**kwargs)

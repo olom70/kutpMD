@@ -102,6 +102,5 @@ def main():
         else:
             create_error_monitor()
 
-
 if __name__ in ('__main__', '__android__'):
     main()
