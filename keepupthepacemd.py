@@ -31,12 +31,91 @@ from libs.applibs.kivymd.toast import toast
 
 from libs.applibs.dialogs import card
 
+import libs.applibs.profilem.profile as profile
+import libs.applibs.profilem.enumandconst as enumandconst
+import libs.applibs.persistence.profilepersistence as persistence
+import libs.applibs.compendium.c01bicycling as c01
+import libs.applibs.compendium.c02conditioningexercise as c02
+import libs.applibs.compendium.c03dancing as c03
+import libs.applibs.compendium.c04fishinghunting as c04
+import libs.applibs.compendium.c05homeactivity as c05
+import libs.applibs.compendium.c06homerepair as c06
+import libs.applibs.compendium.c07inactivity as c07
+import libs.applibs.compendium.c08lawngarden as c08
+import libs.applibs.compendium.c09miscellaneous as c09
+import libs.applibs.compendium.c10musicplaying as c10
+import libs.applibs.compendium.c11occupation as c11
+import libs.applibs.compendium.c12running as c12
+import libs.applibs.compendium.c13selfcare as c13
+import libs.applibs.compendium.c14sexualactivity as c14
+import libs.applibs.compendium.c15sports as c15
+import libs.applibs.compendium.c16transportation as c16
+import libs.applibs.compendium.c17walking as c17
+import libs.applibs.compendium.c18wateractivities as c18
+import libs.applibs.compendium.c19winteractivities as c19
+import libs.applibs.compendium.c20religiousactivities as c20
+import libs.applibs.compendium.c21volunteeractivities as c21
 
 class keepupthepaceMD(MDApp):
     title = 'keepupthepaceMD'
     icon = 'icon.png'
     nav_drawer = properties.ObjectProperty()
     lang = properties.StringProperty('en')
+        #load saved profiles and instantiate the default one
+    listofprofiles, myProfile = persistence.getDefaultProfileFromShelf()
+
+    # define the properties that will be updated in the user interface
+    knbmi = properties.StringProperty('0')
+    kbbmi = properties.StringProperty('0')
+    krmr1918 = properties.StringProperty('0')
+    krmr1984 = properties.StringProperty('0')
+    krmr1990 = properties.StringProperty('0')
+    krmrml1918 = properties.StringProperty('0')
+    krmrml1984 = properties.StringProperty('0')
+    krmrml1990 = properties.StringProperty('0')
+    khbe1918 = properties.StringProperty('0')
+    khbe1984 = properties.StringProperty('0')
+    khbe1990 = properties.StringProperty('0')
+    kqfp = properties.StringProperty('0')
+    kefp = properties.StringProperty('0')
+
+    # initialize a profile to test the app, if none loaded
+    if not(isinstance(myProfile, profile.Profile)):
+        myProfile=profile.Profile('not coming from shelf')
+        myProfile.isdefault = True
+        myProfile.age = 35
+        myProfile.gender = enumandconst.Gender.FEMALE
+        myProfile.weightIntegerPart = 60
+        myProfile.weightDecimalPart = 0
+        myProfile.heightIntegerPart = 1
+        myProfile.heightDecimalPart = 68
+        myProfile.metricChoice = enumandconst.MetricChoice.ISO
+        myProfile.computeBMI()
+    else:
+        myProfile.computeAll()
+
+    # initialize all the MET tables
+    bicycling = c01.Bicycling
+    conditionningExercises = c02.ConditionningExercises
+    dancing = c03.Dancing
+    fishingHunting = c04.FishingHunting
+    homeActivity = c05.HomeActivity
+    homeRepair = c06.HomeRepair
+    inactivity = c07.Inactivity
+    lawnGarden = c08.LawnGarden
+    miscellaneous = c09.Miscellaneous
+    musicPlaying = c10.MusicPlaying
+    occupation = c11.Occupation
+    running = c12.Running
+    selfcare = c13.SelfCare
+    sexualActivity = c14.SexualActivity
+    sports = c15.Sports
+    transportation = c16.Transportation
+    walking = c17.Walking
+    waterActivities = c18.WaterActivities
+    winterActivites = c19.WinterActivities
+    religiousActivities = c20.ReligiousActivities
+    volunteeractivities = c21.VolunteerActivities
 
     def __init__(self, **kvargs):
         super(keepupthepaceMD, self).__init__(**kvargs)
@@ -56,6 +135,28 @@ class keepupthepaceMD(MDApp):
         self.translation = Translation(
             self.lang, 'Ttest', os.path.join(self.directory, 'data', 'locales')
         )
+
+        listOfMetTables = [self.translation._('01-Bicycling'), 
+        self.translation._('02-Conditionning Exercises'),
+        self.translation._('03-Dancing'),
+        self.translation._('04-Fishing & Hunting'),
+        self.translation._('05-Home Activity'),
+        self.translation._('06-Home Repair'),
+        self.translation._('07-Inactivity'),
+        self.translation._('08-Lawn Garden'),
+        self.translation._('09-Miscellaneous'),
+        self.translation._('10-Music Playing'),
+        self.translation._('11-Occupation'),
+        self.translation._('12-Runing'),
+        self.translation._('13-Self Care'),
+        self.translation._('14-Sexual Activity'),
+        self.translation._('15-Sports'),
+        self.translation._('16-Transportation'),
+        self.translation._('17-Walking'),
+        self.translation._('18-Water Activities'),
+        self.translation._('19-Winter Activities'),
+        self.translation._('20-Religious Activities'),
+        self.translation._('21-Volunteer Activities')]
 
     def get_application_config(self):
         return super(keepupthepaceMD, self).get_application_config(
@@ -77,6 +178,25 @@ class keepupthepaceMD(MDApp):
         self.nav_drawer = self.screen.ids.nav_drawer
 
         return self.screen
+
+    def doThingsBetweenScreen(self):
+        '''
+            save profiles when leaving some selectted tabs
+        '''
+        self.myProfile.computeAll()
+        persistence.saveprofiles()
+        self.kbbmi = self.myProfile.displaybBMI()
+        self.knbmi = self.myProfile.displaynBMI()
+        self.krmr1918, self.krmr1984, self.krmr1990 = self.myProfile.displayRMR()
+        self.krmrml1918, self.krmrml1984, self.krmrml1990 = self.myProfile.displayRMRml()
+        self.khbe1918, self.khbe1984, self.khbe1990 = self.myProfile.displayHBE()
+        self.kqfp, self.kefp = self.myProfile.displayFAT()
+
+    def on_stop(self):
+        persistence.saveprofiles()
+
+    def on_pause(self):
+        persistence.saveprofiles()
 
     def load_all_kv_files(self, directory_kv_files):
         for kv_file in os.listdir(directory_kv_files):

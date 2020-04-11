@@ -1,5 +1,6 @@
 import os
 import sys
+import libs.applibs.compendium.abstractcompendium as abstractcompendium
 
 class HomeActivity(abstractcompendium.Compendium):
 
