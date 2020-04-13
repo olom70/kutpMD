@@ -90,7 +90,7 @@ class keepupthepaceMD(MDApp):
         myProfile.heightIntegerPart = 1
         myProfile.heightDecimalPart = 68
         myProfile.metricChoice = enumandconst.MetricChoice.ISO
-        myProfile.computeBMI()
+        myProfile.computeAll()
     else:
         myProfile.computeAll()
 
@@ -179,19 +179,25 @@ class keepupthepaceMD(MDApp):
 
         return self.screen
 
-    def doThingsBetweenScreen(self):
+    def refreshValuesToDisplayOnScreen(self):
         '''
-            save profiles when leaving some selectted tabs
+            Refresh the values to display whenever it's needed
         '''
-        self.myProfile.computeAll()
-        persistence.saveprofiles()
         self.kbbmi = self.myProfile.displaybBMI()
         self.knbmi = self.myProfile.displaynBMI()
         self.krmr1918, self.krmr1984, self.krmr1990 = self.myProfile.displayRMR()
         self.krmrml1918, self.krmrml1984, self.krmrml1990 = self.myProfile.displayRMRml()
         self.khbe1918, self.khbe1984, self.khbe1990 = self.myProfile.displayHBE()
         self.kqfp, self.kefp = self.myProfile.displayFAT()
-
+    
+    def doThingsBetweenScreen(self):
+        '''
+            save profiles when leaving some selectted tabs
+        '''
+        self.myProfile.computeAll()
+        persistence.saveprofiles()
+        self.refreshValuesToDisplayOnScreen()
+        
     def on_stop(self):
         persistence.saveprofiles()
 

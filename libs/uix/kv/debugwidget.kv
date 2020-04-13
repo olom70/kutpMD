@@ -1,0 +1,25 @@
+#:kivy 1.11.1
+
+<Widget>:
+    canvas.after:
+        Line:
+            rectangle: self.x+1,self.y+1,self.width-1,self.height-1
+            dash_offset: 5
+            dash_length: 3
+
+<MDLabel>:
+    canvas.after:
+        Color:
+            rgb: 1,0,0
+        Line:
+            rectangle: self.x+1,self.y+1,self.width-1,self.height-1
+        Color:
+            rgb: 1,1,1
+
+<MDTextField>:
+    canvas.before:
+        Color:
+            rgba: 1., 0., 0., .3
+        Rectangle:
+            pos: self.pos
+            size: self.size

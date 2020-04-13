@@ -1,8 +1,20 @@
 Traceback (most recent call last):
-  File "/home/olom/ownCloud/dev/python/keepupthepaceMD/main.py", line 61, in main
-    from keepupthepacemd import keepupthepaceMD
-  File "/home/olom/ownCloud/dev/python/keepupthepaceMD/keepupthepacemd.py", line 59, in <module>
-    class keepupthepaceMD(MDApp):
-  File "/home/olom/ownCloud/dev/python/keepupthepaceMD/keepupthepacemd.py", line 120, in keepupthepaceMD
-    listOfMetTables = [translation._('01-Bicycling'),
-NameError: name 'translation' is not defined
+  File "/home/olom/ownCloud/dev/python/keepupthepaceMD/main.py", line 64, in main
+    app.run()
+  File "/home/olom/ownCloud/dev/python/keepupthepaceMD/kivy_venv/lib/python3.7/site-packages/kivy/app.py", line 829, in run
+    root = self.build()
+  File "/home/olom/ownCloud/dev/python/keepupthepaceMD/keepupthepacemd.py", line 175, in build
+    self.load_all_kv_files(os.path.join(self.directory, 'libs', 'uix', 'kv'))
+  File "/home/olom/ownCloud/dev/python/keepupthepaceMD/keepupthepacemd.py", line 212, in load_all_kv_files
+    Builder.load_string(kv.read())
+  File "/home/olom/ownCloud/dev/python/keepupthepaceMD/kivy_venv/lib/python3.7/site-packages/kivy/lang/builder.py", line 368, in load_string
+    parser = Parser(content=string, filename=fn)
+  File "/home/olom/ownCloud/dev/python/keepupthepaceMD/kivy_venv/lib/python3.7/site-packages/kivy/lang/parser.py", line 401, in __init__
+    self.parse(content)
+  File "/home/olom/ownCloud/dev/python/keepupthepaceMD/kivy_venv/lib/python3.7/site-packages/kivy/lang/parser.py", line 507, in parse
+    self.execute_directives()
+  File "/home/olom/ownCloud/dev/python/keepupthepaceMD/kivy_venv/lib/python3.7/site-packages/kivy/lang/parser.py", line 461, in execute_directives
+    kivy.lang.builder.Builder.load_file(ref)
+  File "/home/olom/ownCloud/dev/python/keepupthepaceMD/kivy_venv/lib/python3.7/site-packages/kivy/lang/builder.py", line 288, in load_file
+    with open(filename, 'r') as fd:
+FileNotFoundError: [Errno 2] No such file or directory: 'libs/uix/kv.debugwidget.kv'

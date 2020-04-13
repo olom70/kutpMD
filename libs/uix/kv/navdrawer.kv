@@ -67,19 +67,19 @@
             size_hint_y: None
             height: self.minimum_height
             spacing: dp(10)
-
+ 
             LabelSection:
-                text:  app.translation._('Меню:')
+                text:  app.translation._('Menu:')
                 events_callback: lambda x: x
 
             SingleIconItem:
                 icon: 'web'
-                text: app.translation._('Язык')
+                text: app.translation._('Langue')
                 events_callback: app.select_locale
 
             SingleIconItem:
                 icon: 'language-python'
-                text: app.translation._('Лицензия')
+                text: app.translation._('Licence')
                 events_callback: app.show_license
 
             SingleIconItem:
