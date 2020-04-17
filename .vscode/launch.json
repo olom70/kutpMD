@@ -5,6 +5,14 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Python : main.py",
+            "type": "python",
+            "request": "launch",
+            "program": "main.py",
+            "console": "integratedTerminal",
+            "args": ["-m", "screen:nexus7,portrait"]
+        },
+        {
             "name": "Python : Fichier actuel",
             "type": "python",
             "request": "launch",

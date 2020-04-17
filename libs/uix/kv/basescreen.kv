@@ -11,41 +11,26 @@
 # LICENSE: MIT
 
 #:import BaseScreen libs.uix.baseclass.basescreen.BaseScreen
-#:include libs/uix/kv/debugwidget.kv
-#include libs/uix/kv/layoutandplacement.kv
+
 
 <BaseScreen>:
     name: 'base'
     on_kv_post: app.refreshValuesToDisplayOnScreen()
     
-    BoxLayout:
-        MDCard:
-            orientation: 'vertical'
-            padding: "8dp"
-            size_hint: None, None
-            size: "280dp", "180dp"
-            pos_hint: {"center_x": .5, "center_y": .5}
-
-            MDLabel:
-                theme_text_color: "Secondary"
-                size_hint_y: None
-                height: self.texture_size[1]
-                text: app.translation._('BMI (old formula) : ')
+    StackLayout:
+        KMDCard:
+            KMainMDLabel:
+                text: app.translation._('BMI (old formula)')
             MDSeparator:
                 height: "1dp"
-            MDLabel:
+            KMDLabel:
                 id: bmi_value_old_formula
                 text: str(app.kbbmi)
-        MDCard:
-            orientation: 'vertical'
-            padding: "8dp"
-            size_hint: None, None
-            size: "280dp", "180dp"
-            pos_hint: {"center_x": .5, "center_y": .5}
-            MDLabel:
+        KMDCard:
+            KMainMDLabel:
                 text: app.translation._('BMI (new formula)')
             MDSeparator:
                 height: "1dp"
-            MDLabel:
+            KMDLabel:
                 id: bmi_value_new_formula
                 text: str(app.knbmi)
