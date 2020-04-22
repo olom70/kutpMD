@@ -17,7 +17,9 @@
     name: 'base'
     on_kv_post: app.refreshValuesToDisplayOnScreen()
     
-    StackLayout:
+    KMDStackLayout:
+        KMainMDLabel:
+            text: app.translation._('BMI')
         KMDCard:
             KMainMDLabel:
                 text: app.translation._('BMI (old formula)')
@@ -34,3 +36,29 @@
             KMDLabel:
                 id: bmi_value_new_formula
                 text: str(app.knbmi)
+        KMainMDLabel:
+            text: app.translation._('RMR & HBE')
+        KMDCard3:
+            KMainMDLabel:
+                text: app.translation._('RMR 1918')
+            MDSeparator:
+                height: "1dp"
+            KMDRaisedButton:
+                id: bmi_value_old_formula
+                text: str(app.krmr1918)
+        KMDCard3:
+            KMainMDLabel:
+                text: app.translation._('RMR (m/l) 1918')
+            MDSeparator:
+                height: "1dp"
+            KMDRaisedButton:
+                id: bmi_value_new_formula
+                text: str(app.krmrml1918)
+        KMDCard3:
+            KMainMDLabel:
+                text: app.translation._('HBE 1918')
+            MDSeparator:
+                height: "1dp"
+            KMDRaisedButton:
+                id: bmi_value_new_formula
+                text: str(app.khbe1918)

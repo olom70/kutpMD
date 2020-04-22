@@ -10,8 +10,13 @@
     theme_text_color: "Secondary"
     size_hint_y: None
     font_style: 'H4'
-    #font_size: '20sp'
     height: self.texture_size[1]
+
+<KMDRaisedButton@MDRaisedButton>:
+    theme_text_color: "Secondary"
+    size_hint_y: None
+    font_size: '20sp'
+    #font_style: 'H4'
 
 <KMDCard@MDCard>:
     orientation: 'vertical'
@@ -21,5 +26,19 @@
     size: '150dp', '150dp'
     pos_hint: {"center_x": .5, "center_y": .5}
 
+<KMDCard3@MDCard>:
+    orientation: 'vertical'
+    padding: "8dp"
+    spacing: "10dp"
+    size_hint: 0.3333, None
+    size: '150dp', '150dp'
+    pos_hint: {"center_x": .5, "center_y": .5}
+
+
 <KMDTextField@MDTextField>:
     halign: "center"
+
+<KMDStackLayout@MDStackLayout>
+    #adaptive_height: True
+    #adaptive_width: True
+    #adaptive_size: True
