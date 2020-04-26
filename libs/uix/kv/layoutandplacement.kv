@@ -3,6 +3,7 @@
 <KMainMDLabel@MDLabel>:
     theme_text_color: "Primary"
     font_style: 'H5'
+    halign: 'center'
     size_hint_y: None
     height: self.texture_size[1]
 
@@ -10,20 +11,21 @@
     theme_text_color: "Secondary"
     size_hint_y: None
     font_style: 'H4'
+    halign: 'center'
     height: self.texture_size[1]
 
 <KMDRaisedButton@MDRaisedButton>:
     theme_text_color: "Secondary"
     size_hint_y: None
     font_size: '20sp'
-    #font_style: 'H4'
+    pos_hint: {"center_x": .5, "center_y": .5}
 
 <KMDCard@MDCard>:
     orientation: 'vertical'
     padding: "8dp"
     spacing: "10dp"
     size_hint: 0.5, None
-    size: '150dp', '150dp'
+    size: '150dp', '100dp'
     pos_hint: {"center_x": .5, "center_y": .5}
 
 <KMDCard3@MDCard>:
@@ -31,7 +33,7 @@
     padding: "8dp"
     spacing: "10dp"
     size_hint: 0.3333, None
-    size: '150dp', '150dp'
+    size: '150dp', '100dp'
     pos_hint: {"center_x": .5, "center_y": .5}
 
 

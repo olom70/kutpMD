@@ -3,3 +3,4 @@ kivy_venv/pyvenv.cfg
 kivy_venv/*
 *.pyc
 libs/applibs/kivymd/*
+error.log

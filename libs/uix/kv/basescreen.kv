@@ -22,18 +22,18 @@
             text: app.translation._('BMI')
         KMDCard:
             KMainMDLabel:
-                text: app.translation._('BMI (old formula)')
+                text: app.translation._('BMI (old)')
             MDSeparator:
                 height: "1dp"
-            KMDLabel:
+            KMDRaisedButton:
                 id: bmi_value_old_formula
                 text: str(app.kbbmi)
         KMDCard:
             KMainMDLabel:
-                text: app.translation._('BMI (new formula)')
+                text: app.translation._('BMI (new)')
             MDSeparator:
                 height: "1dp"
-            KMDLabel:
+            KMDRaisedButton:
                 id: bmi_value_new_formula
                 text: str(app.knbmi)
         KMainMDLabel:
@@ -62,3 +62,69 @@
             KMDRaisedButton:
                 id: bmi_value_new_formula
                 text: str(app.khbe1918)
+        KMDCard3:
+            KMainMDLabel:
+                text: app.translation._('RMR 1984')
+            MDSeparator:
+                height: "1dp"
+            KMDRaisedButton:
+                id: bmi_value_old_formula
+                text: str(app.krmr1984)
+        KMDCard3:
+            KMainMDLabel:
+                text: app.translation._('RMR (m/l) 1984')
+            MDSeparator:
+                height: "1dp"
+            KMDRaisedButton:
+                id: bmi_value_new_formula
+                text: str(app.krmrml1984)
+        KMDCard3:
+            KMainMDLabel:
+                text: app.translation._('HBE 1984')
+            MDSeparator:
+                height: "1dp"
+            KMDRaisedButton:
+                id: bmi_value_new_formula
+                text: str(app.khbe1984)
+        KMDCard3:
+            KMainMDLabel:
+                text: app.translation._('RMR 1990')
+            MDSeparator:
+                height: "1dp"
+            KMDRaisedButton:
+                id: bmi_value_old_formula
+                text: str(app.krmr1990)
+        KMDCard3:
+            KMainMDLabel:
+                text: app.translation._('RMR (m/l) 1990')
+            MDSeparator:
+                height: "1dp"
+            KMDRaisedButton:
+                id: bmi_value_new_formula
+                text: str(app.krmrml1990)
+        KMDCard3:
+            KMainMDLabel:
+                text: app.translation._('HBE 1990')
+            MDSeparator:
+                height: "1dp"
+            KMDRaisedButton:
+                id: bmi_value_new_formula
+                text: str(app.khbe1990)
+        KMainMDLabel:
+            text: app.translation._('Fat percentage')
+        KMDCard:
+            KMainMDLabel:
+                text: app.translation._('quadratic')
+            MDSeparator:
+                height: "1dp"
+            KMDRaisedButton:
+                id: bmi_value_old_formula
+                text: str(app.kqfp)
+        KMDCard:
+            KMainMDLabel:
+                text: app.translation._('exponential')
+            MDSeparator:
+                height: "1dp"
+            KMDRaisedButton:
+                id: bmi_value_new_formula
+                text: str(app.kefp)
