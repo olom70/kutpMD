@@ -7,10 +7,13 @@
     size_hint_y: None
     height: self.texture_size[1]
 
+<KMainMDLabelLeft@KMainMDLabel>:
+    halign: 'left'
+
 <KMDLabel@MDLabel>:
     theme_text_color: "Secondary"
     size_hint_y: None
-    font_style: 'H4'
+    font_style: 'H6'
     halign: 'center'
     height: self.texture_size[1]
 
@@ -28,14 +31,16 @@
     size: '150dp', '100dp'
     pos_hint: {"center_x": .5, "center_y": .5}
 
-<KMDCard3@MDCard>:
-    orientation: 'vertical'
-    padding: "8dp"
-    spacing: "10dp"
-    size_hint: 0.3333, None
-    size: '150dp', '100dp'
-    pos_hint: {"center_x": .5, "center_y": .5}
+<KMDCardInput2@KMDCard>:
+    size: '150dp', '70dp'
+    padding: "2dp"
 
+
+<KMDCard3@KMDCard>:
+    size_hint: 0.3333, None
+
+<KMDSeparator@MDSeparator>:
+    height: "1dp"
 
 <KMDTextField@MDTextField>:
     halign: "center"

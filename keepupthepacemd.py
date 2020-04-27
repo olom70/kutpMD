@@ -227,6 +227,7 @@ class keepupthepaceMD(MDApp):
                 self.dialog_exit()
                 return
             try:
+                self.doThingsBetweenScreen()
                 self.manager.current = self.list_previous_screens.pop()
             except:
                 self.manager.current = 'base'

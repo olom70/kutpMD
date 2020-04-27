@@ -20,5 +20,28 @@
     KMDStackLayout:
         KMainMDLabel:
             text: str(app.myProfile.profileName)
-        MDSeparator:
-            height: "1dp"
+        KMDSeparator:
+        KMDLabel:
+            text: str(app.myProfile.profileGoal)
+        KMDSeparator:
+        KMainMDLabelLeft:
+            text: app.translation._('Height')
+        KMDSeparator:
+        KMDCardInput2:
+            KMDTextField:
+                id: profile_height_integerpart
+                input_filter: 'int'
+                text: str(app.myProfile.heightIntegerPart)
+                hint_text: app.translation._('meter')
+                on_text_validate: root.initProfileUpdate('heightIntegerPart')
+                on_focus: root.on_focus(args[1], 'heightIntegerPart')
+        KMDCardInput2:
+            KMDTextField:
+                input_filter: 'int'
+                id: profile_height_decimalpart
+                text: str(app.myProfile.heightDecimalPart)
+                hint_text: app.translation._('centimeter')
+                on_text_validate: root.initProfileUpdate('heightDecimalPart')
+                on_focus: root.on_focus(args[1], 'heightDecimalPart')
+
+        
