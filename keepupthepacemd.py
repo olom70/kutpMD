@@ -28,6 +28,8 @@ from libs.uix.lists import Lists
 
 from libs.applibs.kivymd.app import MDApp
 from libs.applibs.kivymd.toast import toast
+from kivy.core.text import LabelBase
+from libs.applibs.kivymd.font_definitions import theme_font_styles
 
 from libs.applibs.dialogs import card
 
@@ -171,6 +173,17 @@ class keepupthepaceMD(MDApp):
         self.lang = self.config.get('General', 'language')
 
     def build(self):
+        LabelBase.register(
+            name="Arial",
+            fn_regular="Arial.ttf")
+
+        theme_font_styles.append('Arial')
+        self.theme_cls.font_styles["Arial"] = [
+            "Arial",
+            16,
+            False,
+            0.15,
+        ]
         self.set_value_from_config()
         self.load_all_kv_files(os.path.join(self.directory, 'libs', 'uix', 'kv'))
         self.screen = StartScreen()

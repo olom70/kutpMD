@@ -43,5 +43,45 @@
                 hint_text: app.translation._('centimeter')
                 on_text_validate: root.initProfileUpdate('heightDecimalPart')
                 on_focus: root.on_focus(args[1], 'heightDecimalPart')
+        KMDSeparator:
+        KMainMDLabelLeft:
+            text: app.translation._('Weight')
+        KMDSeparator:
+        KMDCardInput2:
+            KMDTextField:
+                hint_text: app.translation._('kilogram')
+                input_filter: 'int'    
+                id: profile_weight_integerpart
+                text: str(app.myProfile.weightIntegerPart)
+                on_text_validate: root.initProfileUpdate('weightIntegerPart')
+                on_focus: root.on_focus(args[1], 'weightIntegerPart')
+        KMDCardInput2:
+            KMDTextField:
+                hint_text: app.translation._('gram')
+                input_filter: 'int'
+                id: profile_weight_decimalpart
+                text: str(app.myProfile.weightDecimalPart)
+                on_text_validate: root.initProfileUpdate('weightDecimalPart')
+                on_focus: root.on_focus(args[1], 'weightDecimalPart')
+        KMainMDLabelLeft:
+            text: app.translation._('Age & Gender')
+        KMDSeparator:
+        KMDCardInput2:
+            KMDTextField:
+                hint_text: app.translation._('Age')
+                input_filter: 'int'
+                id: profile_age
+                text: str(app.myProfile.age)
+                on_text_validate: root.initProfileUpdate('age')
+                on_focus: root.on_focus(args[1], 'age')
+        KMDCardInput2:
+            Spinner:
+                id: profile_gender
+                #font_style: "Arial"
+                font_name: "Arial"
+                text: str(app.myProfile.displayGender())
+                values: str(app.myProfile.getAllGenders()['0']), str(app.myProfile.getAllGenders()['1'])
+                on_text: root.initProfileUpdate('gender')
+
 
         
