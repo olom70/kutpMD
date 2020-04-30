@@ -14,11 +14,16 @@ import kivy
 kivy.require('1.11.1')
 from kivy.uix.screenmanager import Screen
 import libs.applibs.profilem.enumandconst as enumandconst
+from libs.applibs.kivymd.uix.menu import MDDropdownMenu
 
 class MetricsScreen(Screen):
     '''
         Screen to enter all the metrics related to a profile
     '''
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
+
     def initProfileUpdate(self, metricToSave, *args):
         '''
             Update (in memory only) the current Profile with the modified value
@@ -114,4 +119,5 @@ class MetricsScreen(Screen):
             pass
         else:
             self.initProfileUpdate(metricToSave)
+
 

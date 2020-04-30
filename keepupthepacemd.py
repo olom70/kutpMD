@@ -30,6 +30,8 @@ from libs.applibs.kivymd.app import MDApp
 from libs.applibs.kivymd.toast import toast
 from kivy.core.text import LabelBase
 from libs.applibs.kivymd.font_definitions import theme_font_styles
+from libs.applibs.kivymd.uix.menu import MDDropdownMenu
+
 
 from libs.applibs.dialogs import card
 
@@ -130,6 +132,7 @@ class keepupthepaceMD(MDApp):
         self.manager = None
         self.window_language = None
         self.exit_interval = False
+        self.gender_menu = None
         self.dict_language = literal_eval(
             open(
                 os.path.join(self.directory, 'data', 'locales', 'locales.txt')).read()
@@ -211,6 +214,20 @@ class keepupthepaceMD(MDApp):
         persistence.saveprofiles()
         self.refreshValuesToDisplayOnScreen()
         
+    def on_start(self):
+        # Sets the values of the dropdown menu for the GENDER
+        gender_items = [{"icon": "git", "text": f"Item {i}"} for i in range(5)]
+        self.gender_menu = MDDropdownMenu(
+            caller=self.screen.ids['metrics'].ids.profile_gender,
+            items=gender_items,position="center",
+            callback=self.set_gender_item,width_mult=4,
+            )
+
+        # Handling gender with a drop down menu
+    def set_gender_item(self, instance):
+        self.initProfileUpdate('gender')
+        self.screen.ids['metrics'].ids.profile_gender.set_item(instance.text)
+
     def on_stop(self):
         persistence.saveprofiles()
 

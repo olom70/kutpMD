@@ -67,7 +67,7 @@ class Profile(object):
     def getAllGenders(self):
         '''
             Return all the occurences of the Enum Gender in a dictionary
-            content of the dictionary : {1 : '♂', 2: '♀' }
+            content of the dictionary : {0 : '♂', 1: '♀' }
         '''
         dictOfGenders = {}
         for genderList in enumandconst.Gender:
