@@ -75,14 +75,14 @@
                 on_text_validate: root.initProfileUpdate('age')
                 on_focus: root.on_focus(args[1], 'age')
         KMDCardInput2:
-            MDDropDownItem:
+            Spinner:
                 id: profile_gender
                 #font_style: "Arial"
-                #font_name: "Arial"
-                #text: str(app.myProfile.displayGender())
-                text: "Item 0"
-                pos_hint: {'center_x': 0.5, 'center_y': 0.6}
-                #on_release: app.keepupthepaceMD.gender_menu.open()
+                font_name: "Arial"
+                text: str(app.myProfile.displayGender())
+                values: str(app.myProfile.getAllGenders()['0']), str(app.myProfile.getAllGenders()['1'])
+                on_text: root.initProfileUpdate('gender')
+
 
 
 

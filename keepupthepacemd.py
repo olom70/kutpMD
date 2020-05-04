@@ -214,19 +214,6 @@ class keepupthepaceMD(MDApp):
         persistence.saveprofiles()
         self.refreshValuesToDisplayOnScreen()
         
-    def on_start(self):
-        # Sets the values of the dropdown menu for the GENDER
-        gender_items = [{"icon": "git", "text": f"Item {i}"} for i in range(5)]
-        self.gender_menu = MDDropdownMenu(
-            caller=self.screen.ids['metrics'].ids.profile_gender,
-            items=gender_items,position="center",
-            callback=self.set_gender_item,width_mult=4,
-            )
-
-        # Handling gender with a drop down menu
-    def set_gender_item(self, instance):
-        self.initProfileUpdate('gender')
-        self.screen.ids['metrics'].ids.profile_gender.set_item(instance.text)
 
     def on_stop(self):
         persistence.saveprofiles()
