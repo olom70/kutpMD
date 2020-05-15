@@ -258,6 +258,12 @@ class keepupthepaceMD(MDApp):
         self.screen.ids.action_bar.left_action_items = \
             [['chevron-left', lambda x: self.back_screen(27)]]
 
+    def show_compendium(self, *args):
+        self.nav_drawer.toggle_nav_drawer()
+        self.manager.current = 'compendiumlist'
+        self.screen.ids.action_bar.left_action_items = \
+            [['chevron-left', lambda x: self.back_screen(27)]]
+
     def show_about(self, *args):
         self.nav_drawer.toggle_nav_drawer()
         self.screen.ids.about.ids.label.text = \

@@ -1,0 +1,26 @@
+# -*- coding: utf-8 -*-
+#
+# This file created with KivyCreatorProject
+# <https://github.com/HeaTTheatR/KivyCreatorProgect
+#
+# Copyright (c) 2020 Ivanov Yuri and KivyMD
+#
+# For suggestions and questions:
+# <kivydevelopment@gmail.com>
+#
+# LICENSE: MIT
+
+#:import BaseScreen libs.uix.baseclass.compendiumlist.CompendiumListScreen
+
+
+<CompendiumListScreen>:
+    name: 'compendiumlist'
+    #on_kv_post: app.refreshValuesToDisplayOnScreen()
+    
+    KMDStackLayout:
+        KMainMDLabel:
+            text: str(app.myProfile.profileName)
+        KMDSeparator:
+        KMDLabel:
+            text: str(app.myProfile.profileGoal)
+        KMDSeparator:
