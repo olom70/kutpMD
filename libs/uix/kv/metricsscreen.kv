@@ -77,11 +77,73 @@
         KMDCardInput2:
             Spinner:
                 id: profile_gender
-                #font_style: "Arial"
                 font_name: "Arial"
                 text: str(app.myProfile.displayGender())
                 values: str(app.myProfile.getAllGenders()['0']), str(app.myProfile.getAllGenders()['1'])
                 on_text: root.initProfileUpdate('gender')
+        KMDSeparator:
+        KMainMDLabelLeft:
+            text: app.translation._('Activity Level Factor')
+        KMDCardInput2:
+            Spinner:
+                id: profile_activityFactor
+                text: str(app.myProfile.displayActivityFactor())
+                values: str(app.myProfile.getAllActivityFactors()['1']), str(app.myProfile.getAllActivityFactors()['2']), str(app.myProfile.getAllActivityFactors()['3']), str(app.myProfile.getAllActivityFactors()['4']), str(app.myProfile.getAllActivityFactors()['5']), str(app.myProfile.getAllActivityFactors()['6'])
+                on_text: root.initProfileUpdate('activityFactor')
+        KMDSeparator:
+        KMainMDLabelLeft:
+            text: app.translation._('Measurement for women (Fat Percentage)')
+        KMDCard3:
+            KMDTextField:
+                hint_text: app.translation._('Triceps (mm)')
+                input_filter: 'int'
+                id: profile_female_triceps
+                text: str(app.myProfile.triceps)
+                on_text_validate: root.initProfileUpdate('femaletriceps')
+                on_focus: root.on_focus(args[1], 'femaletriceps')
+        KMDCard3:
+            KMDTextField:
+                hint_text: app.translation._('Supprialium (mm)')
+                input_filter: 'int'
+                id: profile_female_suprailium
+                text: str(app.myProfile.suprailium)
+                on_text_validate: root.initProfileUpdate('femalesuprailium')
+                on_focus: root.on_focus(args[1], 'femalesuprailium')
+        KMDCard3:
+            KMDTextField:
+                hint_text: app.translation._('Thigh (mm)')
+                input_filter: 'int'
+                id: profile_female_thigh
+                text: str(app.myProfile.thigh)
+                on_text_validate: root.initProfileUpdate('femalethigh')
+                on_focus: root.on_focus(args[1], 'femalethigh')
+        KMDCard3:
+            KMDTextField:
+                hint_text: app.translation._('Triceps (mm)')
+                input_filter: 'int'
+                id: profile_male_triceps
+                text: str(app.myProfile.triceps)
+                on_text_validate: root.initProfileUpdate('maletriceps')
+                on_focus: root.on_focus(args[1], 'maletriceps')
+        KMDCard3:
+            KMDTextField:
+                hint_text: app.translation._('Abdomen (mm)')
+                input_filter: 'int'
+                id: profile_male_abdomen
+                text: str(app.myProfile.abdomen)
+                on_text_validate: root.initProfileUpdate('maleabdomen')
+                on_focus: root.on_focus(args[1], 'maleabdomen')
+        KMDCard3:
+            KMDTextField:
+                hint_text: app.translation._('Thigh (mm)')
+                input_filter: 'int'
+                id: profile_male_thigh
+                text: str(app.myProfile.thigh)
+                on_text_validate: root.initProfileUpdate('malethigh')
+                on_focus: root.on_focus(args[1], 'malethigh')
+
+
+
 
 
 
