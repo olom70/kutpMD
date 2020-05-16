@@ -117,6 +117,9 @@
                 text: str(app.myProfile.thigh)
                 on_text_validate: root.initProfileUpdate('femalethigh')
                 on_focus: root.on_focus(args[1], 'femalethigh')
+        KMDSeparator:
+        KMainMDLabelLeft:
+            text: app.translation._('Measurement for men (Fat Percentage)')
         KMDCard3:
             KMDTextField:
                 hint_text: app.translation._('Triceps (mm)')

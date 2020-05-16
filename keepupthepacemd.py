@@ -256,12 +256,16 @@ class keepupthepaceMD(MDApp):
         self.nav_drawer.toggle_nav_drawer()
         self.manager.current = 'metrics'
         self.screen.ids.action_bar.left_action_items = \
+            [['menu', lambda x: self.nav_drawer.toggle_nav_drawer()]]
+        self.screen.ids.action_bar.right_action_items = \
             [['chevron-left', lambda x: self.back_screen(27)]]
 
     def show_compendium(self, *args):
         self.nav_drawer.toggle_nav_drawer()
         self.manager.current = 'compendiumlist'
         self.screen.ids.action_bar.left_action_items = \
+            [['menu', lambda x: self.nav_drawer.toggle_nav_drawer()]]
+        self.screen.ids.action_bar.right_action_items = \
             [['chevron-left', lambda x: self.back_screen(27)]]
 
     def show_about(self, *args):
@@ -282,6 +286,8 @@ class keepupthepaceMD(MDApp):
             )
         self.manager.current = 'about'
         self.screen.ids.action_bar.left_action_items = \
+            [['menu', lambda x: self.nav_drawer.toggle_nav_drawer()]]
+        self.screen.ids.action_bar.right_action_items = \
             [['chevron-left', lambda x: self.back_screen(27)]]
 
     def show_license(self, *args):
@@ -291,6 +297,8 @@ class keepupthepaceMD(MDApp):
                 os.path.join(self.directory, 'LICENSE'), encoding='utf-8').read()
         self.manager.current = 'license'
         self.screen.ids.action_bar.left_action_items = \
+            [['menu', lambda x: self.nav_drawer.toggle_nav_drawer()]]
+        self.screen.ids.action_bar.right_action_items = \
             [['chevron-left', lambda x: self.back_screen(27)]]
         self.screen.ids.action_bar.title = \
             self.translation._('MIT LICENSE')
