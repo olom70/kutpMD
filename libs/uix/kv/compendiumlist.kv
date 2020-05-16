@@ -10,7 +10,8 @@
 #
 # LICENSE: MIT
 
-#:import BaseScreen libs.uix.baseclass.compendiumlist.CompendiumListScreen
+#:import CompendiumListScreen libs.uix.baseclass.compendiumlist.CompendiumListScreen
+#:import OneLineListItem libs.applibs.kivymd.uix.list.OneLineListItem
 
 
 <CompendiumListScreen>:
@@ -24,3 +25,6 @@
         KMDLabel:
             text: str(app.myProfile.profileGoal)
         KMDSeparator:
+        KMDCard1:
+            OneLineListItem:
+                text: "un"

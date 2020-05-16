@@ -30,7 +30,6 @@ from libs.applibs.kivymd.app import MDApp
 from libs.applibs.kivymd.toast import toast
 from kivy.core.text import LabelBase
 from libs.applibs.kivymd.font_definitions import theme_font_styles
-from libs.applibs.kivymd.uix.menu import MDDropdownMenu
 
 
 from libs.applibs.dialogs import card

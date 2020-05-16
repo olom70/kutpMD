@@ -11,6 +11,7 @@
 # LICENSE: MIT
 
 from kivy.uix.screenmanager import Screen
+from libs.applibs.kivymd.uix.menu import MDDropdownMenu
 
 class CompendiumListScreen(Screen):
     pass
