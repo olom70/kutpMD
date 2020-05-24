@@ -140,7 +140,7 @@ class keepupthepaceMD(MDApp):
             self.lang, 'Ttest', os.path.join(self.directory, 'data', 'locales')
         )
 
-        listOfMetTables = [self.translation._('01-Bicycling'), 
+        self.listOfMetTables = [self.translation._('01-Bicycling'), 
         self.translation._('02-Conditionning Exercises'),
         self.translation._('03-Dancing'),
         self.translation._('04-Fishing & Hunting'),
