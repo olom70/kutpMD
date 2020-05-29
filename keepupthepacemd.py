@@ -228,17 +228,14 @@ class keepupthepaceMD(MDApp):
                     Builder.load_string(kv.read())
 
     def events_program(self, instance, keyboard, keycode, text, modifiers):
-        if keyboard in (1001, 27):
+        if keyboard == 27:
             if self.nav_drawer.state == 'open':
                 self.nav_drawer.toggle_nav_drawer()
             self.back_screen(event=keyboard)
-        elif keyboard in (282, 319):
-            pass
-
         return True
 
     def back_screen(self, event=None):
-        if event in (1001, 27):
+        if event == 27:
             if self.manager.current == 'base':
                 self.dialog_exit()
                 return
@@ -254,6 +251,14 @@ class keepupthepaceMD(MDApp):
     def show_metrics(self, *args):
         self.nav_drawer.toggle_nav_drawer()
         self.manager.current = 'metrics'
+        self.screen.ids.action_bar.left_action_items = \
+            [['menu', lambda x: self.nav_drawer.toggle_nav_drawer()]]
+        self.screen.ids.action_bar.right_action_items = \
+            [['chevron-left', lambda x: self.back_screen(27)]]
+
+    def show_onelist(self, *args):
+        self.list_previous_screens.append('compendiumlist')
+        self.manager.current = 'onelist'
         self.screen.ids.action_bar.left_action_items = \
             [['menu', lambda x: self.nav_drawer.toggle_nav_drawer()]]
         self.screen.ids.action_bar.right_action_items = \

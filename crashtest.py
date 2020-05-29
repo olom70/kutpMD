@@ -1,43 +1,46 @@
-from kivy.metrics import dp
 
+from kivy.app import App
+from kivy.factory import Factory
+from kivy.lang import Builder
+from libs.applibs.kivymd.theming import ThemeManager
 from libs.applibs.kivymd.app import MDApp
-from libs.applibs.kivymd.uix.datatables import MDDataTable
+
+Builder.load_string(
+    '''
+#:import toast kivymd.toast.toast
 
 
-class Example(MDApp):
+<MyRoot@BoxLayout>
+    orientation: 'vertical'
+
+    MDToolbar:
+        title: "Test MDDropDownItem"
+        md_bg_color: app.theme_cls.primary_color
+        elevation: 10
+        left_action_items: [['menu', lambda x: x]]
+
+    FloatLayout:
+
+        MDDropDownItem:
+            id: dropdown_item
+            pos_hint: {'center_x': 0.5, 'center_y': 0.6}
+            items: app.items
+            dropdown_bg: [1, 1, 1, 1]
+
+        MDRaisedButton:
+            pos_hint: {'center_x': 0.5, 'center_y': 0.3}
+            text: 'Chek Item'
+            on_release: toast(dropdown_item.current_item)
+''')
+
+class Test(MDApp):
+    theme_cls = ThemeManager()
+    theme_cls.primary_palette = "BlueGray"
+
     def build(self):
-        self.data_tables = MDDataTable(
-            size_hint=(0.9, 0.6),
-            use_pagination=True,
-            check=True,
-            column_data=[
-                ("No.", dp(30)),
-                ("Column 1", dp(30)),
-                ("Column 2", dp(30)),
-                ("Column 3", dp(30)),
-                ("Column 4", dp(30)),
-                ("Column 5", dp(30)),
-            ],
-            row_data=[
-                (f"{i + 1}", "2.23", "3.65", "44.1", "0.45", "62.5")
-                for i in range(50)
-            ],
-        )
-        self.data_tables.bind(on_row_press=self.on_row_press)
-        self.data_tables.bind(on_check_press=self.on_check_press)
-
-    def on_start(self):
-        self.data_tables.open()
-
-    def on_row_press(self, instance_table, instance_row):
-        '''Called when a table row is clicked.'''
-
-        print(instance_table, instance_row)
-
-    def on_check_press(self, instance_table, current_row):
-        '''Called when the check box in the table row is checked.'''
-
-        print(instance_table, current_row)
+        self.items = [f"Item {i}" for i in range(50)]
+        return Factory.MyRoot()
 
 
-Example().run()
+if __name__ == "__main__":
+    Test().run()
